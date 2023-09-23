@@ -2,15 +2,15 @@ from django.db import models
 
 
 class Employee(models.Model):
-    name = models.TextField(max_length=50, verbose_name='Имя сотрудника')
+    name = models.CharField(max_length=50, verbose_name='Имя сотрудника')
 
     def __str__(self):
         return self.name
 
 
 class Food(models.Model):
-    food_name = models.TextField(max_length=40, verbose_name='Названия блюда')
-    composition = models.TextField(max_length=100, verbose_name='Состав')
+    food_name = models.CharField(max_length=40, verbose_name='Названия блюда')
+    composition = models.CharField(max_length=100, verbose_name='Состав')
     cost = models.IntegerField(verbose_name='Цена')
 
     def __str__(self):

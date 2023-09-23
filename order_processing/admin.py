@@ -1,3 +1,7 @@
 from django.contrib import admin
+from order_processing.models import Employee, Order, Food, FoodOrder
 
-# Register your models here.
+admin.site.register(Employee)
+admin.site.register(Order)
+admin.site.register(Food)
+admin.site.register(FoodOrder)
