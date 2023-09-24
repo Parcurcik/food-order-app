@@ -119,7 +119,7 @@ venv.bak/
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
-
+order_processing/migrations/
 # sftp configuration file
 sftp-config.json
 
