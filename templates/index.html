@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
@@ -18,26 +19,33 @@
 
 </head>
 <body>
-<header id="footer-bottom">
+<header class="header-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6 text-center">
                 <div class="block">
-                    <h1>Наше меню</h1>
+                    <h1>Corporate Food</h1>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 text-right">
+                <div class="block">
+                    <a href="#" class="order-button">Сделать заказ</a>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+
 <section id="blog" style="min-height: 1000px;">
-    <div class="container ">
+    <div class="container">
         <div class="block">
             <div class="menu-container">
                 {% if foods %}
-                    <ul style="list-style: none; padding: 0;">
+                    <ul class="menu-items-container" style="list-style: none; padding: 0;">
                         {% for food in foods %}
-                            <li class="menu-item" style="background-color: rgba(188,175,133,0.8); color: black"
+                            <li class="menu-item"
+                                style="background-color: rgba(188,175,133,0.8); color: black; margin-top: 40px"
                                 data-wow-duration="{{ food.duration }}"
                                 data-wow-delay="{{ food.delay }}">
                                 <div class="{{ food.content_class }}">
@@ -49,55 +57,46 @@
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <p>Пожалуйста, добавьте блюда</p>
+                    <ul class="menu-items-container" style="list-style: none; padding: 0; justify-content: center;">
+                        <li class="menu-item"
+                            style="background-color: rgba(188,175,133,0.8); color: black; margin-top: 40px; text-align: center; padding: 20px;">
+                            <div style="padding: 20px;">
+                                <h3 style="font-size: 24px;">Пожалуйста, добавьте блюда через панель администратора</h3>
+                            </div>
+                        </li>
+                    </ul>
+
                 {% endif %}
-
             </div>
-            <a class="btn btn-default btn-more-info wow bounceIn" data-wow-duration="500ms"
-               data-wow-delay="1200ms" href="#" role="button">More Info</a>
-
         </div>
     </div>
 </section>
 
 
-<footer id="footer-bottom">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="block">
-                    <p>Copyright &copy; 2023 - All Rights Reserved.</p>
+<footer class="footer-section">
+
+
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 mx-auto">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2023, All Right Reserved
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="tel:+7343232201">+7 (343) 323-2201</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </footer>
 
 </body>
-<style>
-    .menu-item {
-        margin-bottom: 20px; /* Расстояние между блюдами */
-        padding: 10px;
-        background-color: #f5f5f5; /* Цвет фона */
-        border: 1px solid #ddd;
-        border-radius: 50px;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Тень для элемента */
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .menu-item:hover {
-        transform: scale(1.05); /* Увеличение размера элемента при наведении курсора */
-    }
-
-    .menu-item h3 {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .menu-item p {
-        font-size: 16px;
-    }
-</style>
 
 
 </html>
