@@ -1,0 +1,93 @@
+select,
+input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    background-color: rgb(176, 173, 88); /* Цвет фона */
+    color: #333; /* Цвет текста */
+    height: 40px; /* Установите высоту по вашему усмотрению */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    color: whitesmoke;
+    background-color: rgba(21, 20, 20, 0.7);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #101010;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(253, 251, 251);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.close:hover {
+    background-color: #e3ded9;
+    color: #ff0a0a;
+}
+
+.food-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.food-item {
+    flex-basis: calc(33.33% - 10px);
+}
+
+label {
+    display: block;
+    padding: 10px;
+    background-color: rgba(188, 175, 133, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+label:hover {
+    background-color: #272424;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff5e14;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(176, 173, 88);
+}
+
+#total-price {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
