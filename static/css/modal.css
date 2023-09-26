@@ -1,13 +1,13 @@
 select,
-input[type="date"] {
+input[type="datetime-local"] {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-    background-color: rgb(176, 173, 88); /* Цвет фона */
-    color: #333; /* Цвет текста */
-    height: 40px; /* Установите высоту по вашему усмотрению */
+    background-color: rgb(176, 173, 88);
+    color: #333;
+    height: 40px;
 }
 
 .modal {

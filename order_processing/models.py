@@ -18,16 +18,17 @@ class Food(models.Model):
 
 
 class Order(models.Model):
-    date = models.DateField(verbose_name="Дата")
+    date = models.DateTimeField(verbose_name="Дата и время")
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, verbose_name='Заказчик')
 
     def __str__(self):
-        return f'Дата: {self.date}, Заказчик: {self.employee}'
+        return f'Дата: {self.date.strftime("%Y-%m-%d")}, Время: {self.date.strftime("%H:%M")}, Заказчик: {self.employee}'
 
 
 class FoodOrder(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заказ')
-    food = models.ForeignKey(Food, on_delete=models.CASCADE, verbose_name='Блюдо')
+    food = models.ManyToManyField(Food, verbose_name='Блюда')
+    total_cost = models.IntegerField(verbose_name='Сумма заказа')
 
     def __str__(self):
-        return f'Заказ: {self.order}, Блюдо: {self.food}'
+        return f'{self.order}, Блюда: {", ".join([food.food_name for food in self.food.all()])}; Стоимость заказа: {self.total_cost} руб.'
