@@ -109,7 +109,7 @@
                 {% for food in foods %}
                     <label class="food-item">
                         <input type="checkbox" name="food" value="{{ food.id }} "
-                               data-cost="{{ food.cost }}" required> {{ food.food_name }}
+                               data-cost="{{ food.cost }}"> {{ food.food_name }}
                         ({{ food.cost }} руб.)
                     </label>
                 {% endfor %}
@@ -138,7 +138,7 @@
 </div>
 
 </body>
-
 <script src="{% static 'js/modal.js' %}"></script>
+<script src="{% static 'js/date.js' %}"></script>
 
 </html>

@@ -12,6 +12,8 @@ def home(request):
         date = request.POST.get('datetime')
 
         selected_foods = Food.objects.filter(id__in=selected_food_ids)
+        if not selected_foods:
+            print('ывавфыа')
         employee_name = Employee.objects.get(id=employee_id)
         total_price = sum(food.cost for food in selected_foods)
 
