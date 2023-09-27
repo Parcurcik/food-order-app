@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-^8i$&ok09#i=510+*uwv1@$w@s3sl3jls-eprj=5rgw8--2$=1
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+TIME_ZONE = 'Asia/Ekaterinburg'
 # Application definition
 
 INSTALLED_APPS = [

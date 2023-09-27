@@ -1,14 +1,10 @@
 /* var text-decoration */
-@font-face {
-    font-family: myfont;
-    src: url(../fonts/ufonts.com_tw-cen-mt.ttf);
-}
+
 
 /*--
     Common Css
 --*/
 body {
-    font-family: myfont;
     font-size: 14px;
     font-weight: 400;
 }
@@ -1062,7 +1058,7 @@ ul {
 }
 
 .menu-item {
-    flex-basis: calc(33.33% - 20px); /* 33.33% - 20px для равномерного размещения и учета отступов */
+    flex-basis: calc(33.33% - 20px);
     margin-bottom: 20px;
     padding: 10px;
     background-color: #f5f5f5;
@@ -1074,7 +1070,7 @@ ul {
 
 
 .menu-item:hover {
-    transform: scale(1.05); /* Увеличение размера элемента при наведении курсора */
+    transform: scale(1.05);
 }
 
 .menu-item h3 {
