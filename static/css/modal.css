@@ -10,6 +10,34 @@ input[type="datetime-local"] {
     height: 40px;
 }
 
+input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 20%;
+    background-color: rgb(176, 173, 88);
+    color: #333;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+
+}
+
+/* Стили для кнопки "Скачать отчет" */
+#downloadButton {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #333;
+    height: 40px;
+    display: block; /* Сделать кнопку блочным элементом */
+    justify-content: center;
+    text-align: center;
+    width: 30%; /* Ширина кнопки на всю доступную ширину */
+    margin: 0 auto;
+}
+
 .modal {
     display: none;
     position: fixed;

@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from datetime import datetime
 from django.utils import timezone
+from django.http import HttpResponse, JsonResponse
+
+from datetime import datetime
+import random
+import csv
 
 from order_processing.models import Food, Employee, Order, FoodOrder
 
@@ -13,8 +17,12 @@ def home(request):
         selected_food_ids = request.POST.getlist('food')
         employee_id = request.POST.get('employee')
         date = request.POST.get('datetime')
+        if selected_food_ids == ['0']:
+            num_selected = random.randint(1, Food.objects.count())
+            selected_foods = random.sample(list(food), num_selected)
+        else:
+            selected_foods = Food.objects.filter(id__in=selected_food_ids)
 
-        selected_foods = Food.objects.filter(id__in=selected_food_ids)
         if not selected_foods:
             messages.error(request, 'Для заказа нужно выбрать как минимум одно блюдо!')
             return redirect('home')
@@ -35,3 +43,12 @@ def home(request):
         messages.success(request, 'Ваш заказ успешно оформлен!')
         return redirect(home)
     return render(request, 'index.html', {'foods': food, 'employees': employee})
+
+
+def make_report(request):
+    if request.method == 'POST':
+        selected_date = request.POST.get('date_to_report')
+
+        print(selected_date)
+        messages.success(request, 'Отчет сформирован, ожидайте начала загрузки.')
+        return redirect('home')

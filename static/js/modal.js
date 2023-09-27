@@ -21,16 +21,29 @@ const totalPriceElement = document.getElementById('total-price');
 
 function updateTotalPrice() {
     let total = 0;
+    let hasCost = false;
+
     checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            total += parseFloat(checkbox.getAttribute('data-cost'));
+        const cost = parseFloat(checkbox.getAttribute('data-cost'));
+        if (!isNaN(cost) && checkbox.checked) {
+            total += cost;
+            if (cost !== 0) {
+                hasCost = true;
+            }
         }
     });
-    totalPriceElement.textContent = total.toFixed(2);
+
+    if (!isNaN(total) && hasCost) {
+        totalPriceElement.textContent = total.toFixed(2);
+    } else {
+        totalPriceElement.textContent = "???";
+    }
 }
+
 
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', updateTotalPrice);
+
 });
 
 
