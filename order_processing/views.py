@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils import timezone
-from django.http import HttpResponse, JsonResponse
 
 from datetime import datetime
 import random
-import csv
 
 from order_processing.models import Food, Employee, Order, FoodOrder
 
@@ -48,7 +46,14 @@ def home(request):
 def make_report(request):
     if request.method == 'POST':
         selected_date = request.POST.get('date_to_report')
+        food_orders = FoodOrder.objects.filter(order__date__date=selected_date)
+        total_cost_of_all_orders = sum(order.total_cost for order in food_orders)
+        context = {
+            'date': selected_date,
+            'food_orders': food_orders,
+            'total_cost': total_cost_of_all_orders,
+        }
+        return render(request, 'report.html', context)
 
-        print(selected_date)
-        messages.success(request, 'Отчет сформирован, ожидайте начала загрузки.')
-        return redirect('home')
+
+

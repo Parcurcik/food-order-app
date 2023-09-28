@@ -164,8 +164,8 @@
         <form action="{% url 'report' %}" method="post">
             {% csrf_token %}
             <p for="datePicker" style="margin-top: 5px">Выберите дату:</p>
-            <input type="date" id="datePicker" name="date_to_report">
-            <button id="downloadButton">Скачать отчет</button>
+            <input type="date" id="datePicker" name="date_to_report" required>
+            <button id="downloadButton">Просмотр отчета</button>
         </form>
     </div>
 </div>

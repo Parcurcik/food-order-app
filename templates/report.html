@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Отчет</title>
+        <link rel="stylesheet" href="{% static 'css/report-style.css' %}">
+</head>
+<body>
+<h1>Заказ еды на {{ date }}</h1>
+
+{% if food_orders %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Время</th>
+            <th>Заказчик</th>
+            <th>Блюда</th>
+            <th>Стоимость заказа</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for food_order in food_orders %}
+            <tr>
+                <td>{{ food_order.order.date|time:"H:i" }}</td>
+                <td>{{ food_order.order.employee.name }}</td>
+                <td>
+                    {% for food in food_order.food.all %}
+                        {{ food.food_name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{ food_order.total_cost }} руб.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>Общая сумма заказов на {{ date }}: {{ total_cost }} руб.</p>
+{% else %}
+    <p class="no-data">Данные отсутствуют.</p>
+{% endif %}
+</body>
+</html>

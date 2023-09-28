@@ -22,7 +22,7 @@ class Order(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, verbose_name='Заказчик')
 
     def __str__(self):
-        return f'Дата: {self.date.strftime("%Y-%m-%d")}, Время: {self.date.strftime("%H:%M")}, Заказчик: {self.employee}'
+        return f'Дата: {self.date.strftime("%Y-%m-%d")}; Время: {self.date.strftime("%H:%M")}; Заказчик: {self.employee}'
 
 
 class FoodOrder(models.Model):
@@ -31,4 +31,4 @@ class FoodOrder(models.Model):
     total_cost = models.IntegerField(verbose_name='Сумма заказа')
 
     def __str__(self):
-        return f'{self.order}, Блюда: {", ".join([food.food_name for food in self.food.all()])}; Стоимость заказа: {self.total_cost} руб.'
+        return f'{self.order}; Блюда: {", ".join([food.food_name for food in self.food.all()])}; Стоимость заказа: {self.total_cost} руб.'
